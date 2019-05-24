@@ -1,0 +1,42 @@
+{
+    "loss": {
+      "type": "negativeloglikelihood"
+    },
+    "init": {
+      "type": "glorot"
+    },
+    "optimizer": {
+      "type": "adam",
+      "stepsize": 5e-3,
+      "batchsize": 64,
+      "tolerance": 1e-8,
+      "cycles": 20
+    },
+    "network": [
+      {
+        "type": "linear",
+        "units": 200
+      },
+      {
+        "type": "relu"
+      },
+      {
+        "type": "linear",
+        "units":  100
+      },
+      {
+        "type": "relu"
+      },
+      {
+        "type": "dropout",
+        "ratio": 0.2
+      },
+      {
+        "type": "linear",
+        "units": 10
+      },
+      {
+        "type": "softmax"
+      }
+    ]
+  }
