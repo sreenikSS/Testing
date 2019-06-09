@@ -1,0 +1,74 @@
+{
+    "loss": {
+      "type": "negativeloglikelihood"
+    },
+    "init": {
+      "type": "glorot"
+    },
+    "optimizer": {
+      "type": "adam",
+      "stepsize": 5e-3,
+      "batchsize": 64,
+      "tolerance": 1e-8,
+      "cycles": 20,
+      "maxiterations": 38400
+    },
+    "network": [
+      {
+        "type": "convolution",
+        "insize": 1,
+        "outsize": 6,
+        "kw": 5,
+        "kh": 5,
+        "dh": 1,
+        "dw": 1,
+        "padw": 0,
+        "padh": 0,
+        "inputwidth": 28,
+        "inputheight": 28
+      },
+      {
+        "type": "leakyrelu"
+      },
+      {
+        "type": "maxpooling",
+        "kw": 2,
+        "kh": 2,
+        "dw": 2,
+        "dh": 2,
+        "floor": 0
+      },
+      {
+        "type": "convolution",
+        "insize": 6,
+        "outsize": 16,
+        "kw": 5,
+        "kh": 5,
+        "dw": 1,
+        "dh": 1,
+        "padw": 0,
+        "padh": 0,
+        "inputheight": 12,
+        "inputwidth": 12
+      },
+      {
+        "type": "leakyrelu"
+      },
+      {
+        "type": "maxpooling",
+        "kw": 2,
+        "kh": 2,
+        "dw": 2,
+        "dh": 2,
+        "floor": 0
+      },
+      {
+        "type": "linear",
+        "insize": 256,
+        "outsize": 10
+      },
+      {
+        "type": "softmax"
+      }
+    ]
+  }
